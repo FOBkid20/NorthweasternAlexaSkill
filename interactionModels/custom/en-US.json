@@ -1,0 +1,112 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "northweastern skill",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "CaptureStartDateIntent",
+          "slots": [
+            {
+              "name": "month",
+              "type": "AMAZON.Month"
+            },
+            {
+              "name": "day",
+              "type": "AMAZON.Ordinal"
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER"
+            }
+          ],
+          "samples": [
+            "I start {month} {day}",
+            "I\u0027m starting {month} {day}",
+            "I\u0027m starting {month}",
+            "I\u0027m starting on {month} {year}",
+            "I\u0027m starting on {month} {day} {year}",
+            "I\u0027m starting on {month} {day}",
+            "{month} {year}",
+            "{month} {day} {year}",
+            "{month} {day}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CaptureStartDateIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "month",
+              "type": "AMAZON.Month",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.570109448987.178213132675"
+              }
+            },
+            {
+              "name": "day",
+              "type": "AMAZON.Ordinal",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.570109448987.440221687238"
+              }
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.570109448987.178213132675",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What month do you start?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.570109448987.440221687238",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What day do you start?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
